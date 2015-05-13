@@ -1,7 +1,12 @@
 import pygraphviz as pgv
+import sys
 
-D=pgv.AGraph('MDDFT.dot')
+name = 'MDDFT'
+if len(sys.argv) > 1:
+    name = str(sys.argv[1]) 
+
+D=pgv.AGraph(name+'.dot')
 D.layout('dot') # layout with dot 
-D.draw('MDDFT.png') # draw png
-print("Wrote MDDFT.png")
+D.draw(name+'.png') # draw png
+print("Wrote "+name+".png")
 
